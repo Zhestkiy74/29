@@ -1,0 +1,42 @@
+.cardP {
+    width: 318px;
+
+}
+
+.cardP img{
+    margin-bottom: 15px;
+}
+.cardP p{
+    margin: 7px;
+}
+.cardP button{
+    margin-top: 10px;
+    border-radius: 21.5px;
+}
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    gap: 54px; /* Расстояние между карточками */
+    padding: 0;
+}
+
+
+
+@media (max-width: 1440px){
+    .cards-container {
+    grid-template-columns: repeat(2, 1fr); /* Три колонки */
+    }
+    .cardP {
+        width: 318px;
+
+    }
+}
+@media (max-width: 768px){
+    .cards-container {
+    grid-template-columns: repeat(1, 1fr); /* Три колонки */
+    }
+    .cardP {
+        width: 318px;
+    
+    }
+}

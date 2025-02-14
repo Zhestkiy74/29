@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .subscription-form {
+            background-color: #BD257F;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 440px;
+            width: 100%;
+        }
+        .card-daata{
+            display: flex;
+        }
+
+        .ha{
+            display: flex;
+            gap: 0.781vw;
+            flex-direction: row;
+            max-width: 150px;
+        }
+        .he{
+            width: 35%;
+        }
+        .subscription-form h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .subscription-form label {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .subscription-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .subscription-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .subscription-form button:hover {
+            background-color: #1f1f1f;
+        }
+    </style>
+    <title>пункт проката видеофильмов</title>
+    <header>
+        <h1>Онлайн Кинотеатр</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="podpiska.html">Подписки</a></li>
+                <li><a href="podpiska-start.html">Оформить подписку</a></li>
+                <li><a href="revers.html">Связаться с поддержкой</a></li>
+                <li id="profileLink" style="display: none;" class="dropdown">
+                    <span id="usernameDisplay"></span>
+                    <div class="dropdown-content">
+                        <a href="#" id="logoutButton">Выход</a>
+                    </div>
+                </li>
+                <li><a href="login.html" id="loginLink" style="display: inline;">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="subscription-form">
+            <h2>Оформление подписки</h2>
+            <form>
+                <label for="card-number">Номер карты</label>
+                <input type="text" id="card-number" name="card-number" required>
+    
+                <div class="card-daata">
+                    <div>
+                        <label for="expiry-date">Месяц/Год</label>
+                        <div class="ha as">
+                            <input type="text" id="expiry-date" name="expiry-date" required>
+                            <input type="text" id="expiry-date" name="expiry-date" required>
+                        </div>
+                    </div>
+                    <div class="he">
+
+                    </div>
+                    <div >
+                        <label for="cvv">CVV/CVC</label>
+                        <div  class="ha">
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                    </div>
+                </div>
+                <label for="subscription-cost">Стоимость подписки</label>
+                <input type="text" id="subscription-cost" name="subscription-cost" readonly">
+    
+                <button type="submit">Оформить подписку</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Онлайн Кинотеатр</p>
+    </footer>
+
+
+    </body>
+
+</html>

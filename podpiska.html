@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="podpiska.css">
+    <title>пункт проката видеофильмов</title>
+    <header>
+        <h1>Онлайн Кинотеатр</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="podpiska.html">Подписки</a></li>
+                <li><a href="podpiska-start.html">Оформить подписку</a></li>
+                <li><a href="revers.html">Связаться с поддержкой</a></li>
+                <li id="profileLink" style="display: none;" class="dropdown">
+                    <span id="usernameDisplay"></span>
+                    <div class="dropdown-content">
+                        <a href="#" id="logoutButton">Выход</a>
+                    </div>
+                </li>
+                <li><a href="login.html" id="loginLink" style="display: inline;">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cards-container" id="cards-container"></div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Онлайн Кинотеатр</p>
+    </footer>
+
+    <script>
+const cardsData = [
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            }
+        ];
+
+        const container = document.getElementById('cards-container');
+
+        cardsData.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'cardP';
+
+            cardElement.innerHTML = `
+                <img src="${card.title}" alt="${card.title}"></img>
+                <p>${card.duration}</p>
+                <p>${card.description}</p>
+                <p>${card.price}</p>
+                <p>${card.annualPrice}</p>
+                <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.buttonText}</button></a>
+            `;
+
+            container.appendChild(cardElement);
+        });
+    </script>
+    </body>
+
+</html>
