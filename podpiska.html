@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="podpiska.css">
     <title>пункт проката видеофильмов</title>
+    <style>
+        .cards-container {
+            display: grid;
+            gap: 16px; /* Расстояние между карточками */
+            padding: 16px;
+            max-width: 932px;
+        }
+    </style>
     <header>
         <h1>Онлайн Кинотеатр</h1>
         <nav>
@@ -14,7 +22,7 @@
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="podpiska.html">Подписки</a></li>
                 <li><a href="podpiska-start.html">Оформить подписку</a></li>
-                <li><a href="revers.html">Связаться с поддержкой</a></li>
+                <li><a href="support.html">Связаться с поддержкой</a></li>
                 <li id="profileLink" style="display: none;" class="dropdown">
                     <span id="usernameDisplay"></span>
                     <div class="dropdown-content">
@@ -34,8 +42,24 @@
     </footer>
 
     <script>
-const cardsData = [
-            {
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        const defaultCards = [
+        {
                 title: "./image 2.png",
                 duration: "12 месяцев",
                 description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
@@ -85,23 +109,38 @@ const cardsData = [
             }
         ];
 
-        const container = document.getElementById('cards-container');
 
-        cardsData.forEach(card => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'cardP';
 
-            cardElement.innerHTML = `
+
+
+
+
+ // Функция для отображения карточек
+ function displayCards() {
+            const cardsContainer = document.getElementById('cards-container');
+            const cardsData = JSON.parse(localStorage.getItem('cardsData')) || [];
+
+            cardsContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых карточек
+
+            cardsData.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+
+                cardElement.innerHTML = `
                 <img src="${card.title}" alt="${card.title}"></img>
                 <p>${card.duration}</p>
                 <p>${card.description}</p>
                 <p>${card.price}</p>
                 <p>${card.annualPrice}</p>
                 <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.buttonText}</button></a>
-            `;
+                `;
 
-            container.appendChild(cardElement);
-        });
+                cardsContainer.appendChild(cardElement);
+            });
+        }
+
+        // Инициализация отображения карточек при загрузке страницы
+        document.addEventListener('DOMContentLoaded', displayCards);
     </script>
     </body>
 

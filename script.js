@@ -20,9 +20,13 @@ function initializeCards() {
         localStorage.setItem('cards', JSON.stringify(defaultCards));
     }
 }
+
 const mediaQuery1440 = window.matchMedia('(max-width: 1440px)');
 const mediaQuery1024 = window.matchMedia('(max-width: 1024px)');
 const mediaQuery768 = window.matchMedia('(max-width: 768px)');
+
+
+
 // Функция для отрисовки карточек в конкретном слайдере
 function renderCards(sliderId, cards) {
     const slider = document.getElementById(sliderId);
@@ -56,6 +60,7 @@ function updateSliderPosition(sliderId, currentIndex) {
 function nextSlide(sliderId) {
     const cards = JSON.parse(localStorage.getItem('cards')) || [];
     if (cards.length === 0) return; // Если карточек нет, ничего не делаем
+
     const a768 = mediaQuery768;
     const a1024 = mediaQuery1024;
     const a1440 = mediaQuery1440;
@@ -67,6 +72,7 @@ function nextSlide(sliderId) {
     } else if (a1440.matches) {
         countslideIndex = 3
     }
+
     let currentIndex;
     if (sliderId === 'slider1') {
         currentIndex = currentIndex1;
@@ -74,7 +80,11 @@ function nextSlide(sliderId) {
         currentIndex = currentIndex2;
     }
 
+
     if (currentIndex < cards.length - countslideIndex) {
+
+    if (currentIndex < cards.length - 4) {
+
         currentIndex++;
     } else {
         // Если достигнут конец, переходим на первую карточку
@@ -88,11 +98,12 @@ function nextSlide(sliderId) {
     }
 
     updateSliderPosition(sliderId, currentIndex);
-}
+}}
 
 function prevSlide(sliderId) {
     const cards = JSON.parse(localStorage.getItem('cards')) || [];
     if (cards.length === 0) return; // Если карточек нет, ничего не делаем
+
     const a768 = mediaQuery768;
     const a1024 = mediaQuery1024;
     const a1440 = mediaQuery1440;
@@ -104,6 +115,7 @@ function prevSlide(sliderId) {
     } else if (a1440.matches) {
         countslideIndex = 3
     }
+
     let currentIndex;
     if (sliderId === 'slider1') {
         currentIndex = currentIndex1;
@@ -115,7 +127,11 @@ function prevSlide(sliderId) {
         currentIndex--;
     } else {
         // Если достигнуто начало, переходим на последнюю карточку
+
         currentIndex = cards.length - countslideIndex;
+
+        currentIndex = cards.length - 4;
+
     }
 
     if (sliderId === 'slider1') {
@@ -153,7 +169,6 @@ function addCard() {
 // Функция для сброса всех карточек
 function resetCards() {
     localStorage.removeItem('cards');
-    alert('Все карточки удалены!');
 
     // Обновляем оба слайдера
     renderCards('slider1', []);
@@ -169,3 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards('slider1', cards);
     renderCards('slider2', cards);
 });
+
+
+resetCards();
