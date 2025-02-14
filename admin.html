@@ -36,7 +36,19 @@
             <button onclick="addCard()">Добавить карточку</button>
             <button onclick="resetCards()">Сбросить все карточки</button>
         </div>
-
+        <div class="admin-container">
+            <form id="add-card-form">
+                <input type="text" id="card-title" required placeholder="Ссылка на изображение">
+                <input type="text" id="card-duration" required placeholder="Заголовок карточки">
+                <input type="text" id="card-description" required placeholder="Описание карточки">
+                <input type="text" id="card-price" required placeholder="Ценна карточки">
+                <input type="text" id="card-annualPrice" required placeholder="Будущая ценна карточки">
+        
+                <button type="submit">Добавить карточку</button>
+            </form>
+        
+            <button onclick="resetCardsRed()">Сбросить карточки</button>
+        </div>
         <h2>Раздел для администрации</h2>
         <section>
             <h3>Управление пользователями</h3>
@@ -124,6 +136,117 @@
         // Инициализация отображения пользователей при загрузке страницы
         displayUsers();
 
+
+
+
+
+
+
+
+
+
+        
+
+
+// Функция для добавления новой карточки
+function addCardRed(event) {
+            event.preventDefault(); // Предотвращаем перезагрузку страницы
+
+            // Получаем данные из формы
+            const cardTitle = document.getElementById('card-title').value.trim();
+            const cardDuration = document.getElementById('card-duration').value.trim();
+            const cardDescription = document.getElementById('card-description').value.trim();
+            const cardPrice = document.getElementById('card-price').value.trim();
+            const cardAnnualPrice = document.getElementById('card-annualPrice').value.trim();
+            // Создаем объект новой карточки
+            const newCard = {
+                title: cardTitle,
+                duration: cardDuration,
+                description: cardDescription,
+                price: cardPrice,
+                annualPrice: cardAnnualPrice,
+                buttonText: "Попробовать бесплатно",
+
+            };
+
+            // Получаем текущий массив карточек из localStorage
+            let cardsData = JSON.parse(localStorage.getItem('cardsData')) || [];
+
+            // Добавляем новую карточку в массив
+            cardsData.push(newCard);
+
+            // Сохраняем обновленный массив в localStorage
+            localStorage.setItem('cardsData', JSON.stringify(cardsData));
+
+            // Очищаем форму
+            document.getElementById('add-card-form').reset();
+
+            // Уведомляем администратора
+            alert('Карточка успешно добавлена!');
+        }
+
+        const defaultCards = [
+        {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            },
+            {
+                title: "./image 2.png",
+                duration: "12 месяцев",
+                description: "Кинотеки, Яндекс Музыка, Яндекс Книги и кэшбэк баллами для вас и 3 близких",
+                price: "47.88 ₽ 7 дней бесплатно",
+                annualPrice: "Далее 2,990 ₽ в год, со второго года — 3,490 ₽",
+                buttonText: "Попробовать бесплатно"
+            }
+        ];
+        // Функция для сброса карточек
+        function resetCardsRed() {
+            localStorage.setItem('cardsData', JSON.stringify(defaultCards)); // Удаляем данные о карточках
+        }
+
+        // Инициализация формы
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('add-card-form');
+            form.addEventListener('submit', addCardRed);
+        });
+
+        resetCardsRed();
     </script>
 </body>
 </html>
